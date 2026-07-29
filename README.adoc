@@ -1,1 +1,38 @@
 = Universidad Privada de Santa Cruz de la Sierra: Plantilla oficial para documentos finales de grado
+
+Esta es la plantilla oficial de la UPSA para la creación de documentos finales de grado, tesis, etc.
+
+== Documentación de la plantilla
+
+Información, documentación y demás sobre la plantilla se encuentra en su respectivo link:template/upsa-bo/README.md[README].
+
+== Uso y configuración del repositorio
+
+Para crear tu repositorio en base a este modelo, seguí los pasos de la link:https://docs.github.com/es/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template[documentación de GitHub].
+
+La plantilla hace uso de link:https://git-scm.com/book/en/v2/Git-Tools-Submodules[Git Submodules], al momento de clonar el repositorio, vas a necesitar clonarlo con la opción `--recurse-submodules` para que se descargue el submódulo de la plantilla oficial.
+
+=== GitHub Actions & Pages
+
+El repositorio viene con un CI que compila el documento final para verificar su correcta compilación y además publicarlo en GitHub Pages, por defecto se usa GitHub Actions para compilar el documento, esto se tiene que link:https://docs.github.com/es/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publicaci%C3%B3n-con-un-flujo-de-trabajo-personalizado-github-actions[configurar en los ajustes de tu repositorio].
+
+=== Recomendaciones de uso
+
+- El repositorio ya viene con ajustes y extensiones recomendadas para facilitar el uso de Typst con VS Code.
+- Para compilar el documento final, se recomienda usar link:https://taskfile.dev/[Task], dado que ayuda a automatizar la compilación y demás tareas del documento.
+
+=== Multimedia y fuentes
+
+- `assets/fonts`: Es el directorio donde vos tendrías que colocar tus fuentes tipográficas, GitHub Actions está configurado para descargar fuentes disponibles mediante link:https://brew.sh/[Homebrew], pero es preferible que guardés tus fuentes en este directorio para omitir la descarga de fuentes en cada compilación.
+  - De igual manera, link:.github/workflows/ci.yaml[] ya está configurado con algunas fuentes a ser descargadas.
+- `assets/images`: Es el directorio donde vos tendrías que colocar tus imágenes, gráficos, diagramas, etc. para tu documento final.
+
+== Dudas y problemas
+
+Para problemas como tal, usá el apartado de _Issues_ de este repositorio, y para dudas en sí, usá el apartado de _Discussions_.
+
+== Licencia
+
+La licencia de este repositorio es la misma que la de la plantilla oficial link:template/upsa-bo/LICENSE.txt[Apache License 2.0], solo aplica estrictamente a la estructura de la plantilla, no aplica para nada a los documentos de investigación que se generen con la plantilla o con este repositorio modelo.
+
+Los documentos finales para la universidad son propiedad intelectual de sus autores junto a la universidad por fines académicos.

@@ -42,7 +42,7 @@ tasks:
       TYPST_ROOT: ../../
     desc: Build the plan or proposal document
     cmds:
-      - typst compile TFG-PLAN TFG-{{ .NAME_INITIALS }}-PLAN.pdf
+      - typst compile TFG-PLAN.typ TFG-{{ .NAME_INITIALS }}-PLAN.pdf
     generates:
       - plan.pdf
   thesis:
@@ -52,6 +52,9 @@ tasks:
     desc: Build the thesis or main document
     cmds:
       - typst compile TFG.typ TFG-{{ .NAME_INITIALS }}.pdf
+    sources:
+      - "**/*.typ"
+      - "../../**/*.typ"
     generates:
       - thesis.pdf
   web:

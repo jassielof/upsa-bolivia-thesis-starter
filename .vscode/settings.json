@@ -18,8 +18,10 @@
     "tinymist.previewer": "myriad-dreamin.tinymist",
     "tinymist.previewFeature": "enable",
     "explorer.fileNesting.enabled": true,
+    "tinymist.rootPath": "/",
     "explorer.fileNesting.patterns": {
-        "*.typ": "${capture}.pdf"
+        "*.typ": "${capture}.pdf, ${capture}-*.pdf, ${capture}.typ",
+        "*-PLAN.typ": "${capture}*.pdf",
     },
     "yaml.schemas": {
         "https://typst-community.github.io/json-schemas/docs/hayagriva.schema.json": [

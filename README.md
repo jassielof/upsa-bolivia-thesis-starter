@@ -1,1 +1,0 @@
-# upsa-bolivia-typst

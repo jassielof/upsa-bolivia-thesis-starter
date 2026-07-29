@@ -1,0 +1,63 @@
+version: 3
+
+env:
+  TYPST_ROOT: .
+  TYPST_FONT_PATHS: assets/fonts
+  TYPST_FEATURES: bundle
+
+vars:
+  NAME_INITIALS: ABC
+
+tasks:
+  default:
+    deps:
+      - plan
+      - thesis
+      - spine-cover
+      - front-cover
+  spine-cover:
+    dir: documents/book/
+    env:
+      TYPST_ROOT: ../../
+    desc: Build the spine cover of the document book for printing
+    cmds:
+      - typst compile spine-cover.typ
+    sources:
+      - spine-cover.typ
+      - ../../**/*.typ
+    generates:
+      - spine-cover.pdf
+  front-cover:
+    dir: documents/book/
+    env:
+      TYPST_ROOT: ../../
+    desc: Build the front cover of the document book for printing
+    cmds:
+      - typst compile front-cover.typ
+    generates:
+      - front-cover.pdf
+  plan:
+    dir: documents/plan/
+    env:
+      TYPST_ROOT: ../../
+    desc: Build the plan or proposal document
+    cmds:
+      - typst compile TFG-PLAN TFG-{{ .NAME_INITIALS }}-PLAN.pdf
+    generates:
+      - plan.pdf
+  thesis:
+    dir: documents/thesis/
+    env:
+      TYPST_ROOT: ../../
+    desc: Build the thesis or main document
+    cmds:
+      - typst compile TFG.typ TFG-{{ .NAME_INITIALS }}.pdf
+    generates:
+      - thesis.pdf
+  web:
+    desc: Build the respective PDF files for web deployment
+    cmds:
+      - mkdir -p web
+      - typst compile --pdf-standard 2.0 documents/thesis/{{ .THESIS }}.typ web/{{ .THESIS }}.pdf
+    generates:
+      - web/{{ .THESIS }}.pdf

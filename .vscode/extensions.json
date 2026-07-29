@@ -7,6 +7,12 @@
         // YAML para soporte de Hayagriva de Typst
         "redhat.vscode-yaml",
         // Soporte para Task
-        "task.vscode-task"
+        "task.vscode-task",
+        // Utilidades para escribir Typst
+        "CalebFiggers.typst-companion",
+        // Soporte para gramática y ortografía
+        "ltex-plus.vscode-ltex-plus",
+        // Soporte para renderizar fórmulas matemáticas en el código de Typst
+        "surv.typst-math",
     ]
 }

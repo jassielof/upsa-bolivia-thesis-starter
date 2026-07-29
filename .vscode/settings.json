@@ -1,3 +1,30 @@
 {
-    "[typst]": {}
+    "[typst]": {
+        "editor.wordWrap": "bounded",
+        "editor.wordWrapColumn": 100,
+        "editor.wrappingIndent": "indent"
+    },
+    "ltex.language": "es-AR",
+    "tinymist.fontPaths": [
+        "${workspaceFolder}/assets/fonts"
+    ],
+    "tinymist.syntaxOnly": "auto",
+    "tinymist.formatterMode": "typstyle",
+    "tinymist.preview.partialRendering": true,
+    "tinymist.renderDocs": "enable",
+    "tinymist.compileStatus": "enable",
+    "tinymist.preview.scrollSync": "onSelectionChange",
+    "tinymist.preview.refresh": "onType",
+    "tinymist.previewer": "myriad-dreamin.tinymist",
+    "tinymist.previewFeature": "enable",
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "*.typ": "${capture}.pdf"
+    },
+    "yaml.schemas": {
+        "https://typst-community.github.io/json-schemas/docs/hayagriva.schema.json": [
+            "**/*.{hay,haya,hayagriva}",
+            "**/*.{hay,haya,hayagriva}.{yml,yaml}",
+        ]
+    }
 }

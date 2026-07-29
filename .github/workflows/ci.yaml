@@ -21,6 +21,10 @@ jobs:
         uses: typst-community/setup-typst@v5
       - name: Set up Task
         uses: go-task/setup-task@v2
+      - name: Build documents
+        run: task
+      - name: Build documents for web deployment
+        run: task web
       - name: Upload pages artifacts
         uses: actions/upload-pages-artifact@v5
         with:

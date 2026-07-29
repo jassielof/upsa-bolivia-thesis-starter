@@ -6,10 +6,11 @@ env:
   TYPST_FEATURES: bundle
 
 vars:
-  NAME_INITIALS: ABC
+  NAME_INITIALS: ABC # Reemplazar por las iniciales del nombre del autor del trabajo de grado
 
 tasks:
   default:
+    desc: Genera los documentos principales del trabajo de grado
     deps:
       - plan
       - thesis
@@ -19,7 +20,7 @@ tasks:
     dir: documents/book/
     env:
       TYPST_ROOT: ../../
-    desc: Build the spine cover of the document book for printing
+    desc: Genera el lomo del libro
     cmds:
       - typst compile spine-cover.typ
     sources:
@@ -31,7 +32,7 @@ tasks:
     dir: documents/book/
     env:
       TYPST_ROOT: ../../
-    desc: Build the front cover of the document book for printing
+    desc: Genera la portada (tapa externa) del libro
     cmds:
       - typst compile front-cover.typ
     generates:
@@ -40,7 +41,7 @@ tasks:
     dir: documents/plan/
     env:
       TYPST_ROOT: ../../
-    desc: Build the plan or proposal document
+    desc: Genera el documento de plan de trabajo
     cmds:
       - typst compile TFG-PLAN.typ TFG-{{ .NAME_INITIALS }}-PLAN.pdf
     generates:
@@ -49,7 +50,7 @@ tasks:
     dir: documents/thesis/
     env:
       TYPST_ROOT: ../../
-    desc: Build the thesis or main document
+    desc: Genera la tesis o documento principal del trabajo de grado
     cmds:
       - typst compile TFG.typ TFG-{{ .NAME_INITIALS }}.pdf
     sources:
@@ -58,21 +59,21 @@ tasks:
     generates:
       - thesis.pdf
   web:
-    desc: Build the respective PDF files for web deployment
+    desc: Genera los documentos correspondientes para la publicación web
     cmds:
       - mkdir -p web
       - typst compile --pdf-standard 2.0 documents/thesis/TFG.typ web/thesis.pdf
     generates:
       - web/thesis.pdf
   archival:
-    desc: Build the respective documents for archival purposes
+    desc: Genera los documentos correspondientes para fines de preservación a largo plazo
     cmds:
       - mkdir -p archival
       - typst compile --pdf-standard a-4f documents/thesis/TFG.typ archival/thesis.pdf
     generates:
       - archival/thesis.pdf
   accessibility:
-    desc: Build the respective documents for accessibility purposes
+    desc: Genera los documentos correspondientes con estándares de accesibilidad
     cmds:
       - mkdir -p accessibility
       - typst compile --pdf-standard ua-1 documents/thesis/TFG.typ accessibility/thesis.pdf

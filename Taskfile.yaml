@@ -64,3 +64,15 @@ tasks:
       - typst compile --pdf-standard 2.0 documents/thesis/TFG.typ web/thesis.pdf
     generates:
       - web/thesis.pdf
+  archival:
+    desc: Build the respective documents for archival purposes
+    cmds:
+      - mkdir -p archival
+      - typst compile --pdf-standard a-4f documents/thesis/TFG.typ archival/thesis.pdf
+    generates:
+      - archival/thesis.pdf
+  accessibility:
+    desc: Build the respective documents for accessibility purposes
+    cmds:
+      - mkdir -p accessibility
+      - typst compile --pdf-standard ua-1 documents/thesis/TFG.typ accessibility/thesis.pdf

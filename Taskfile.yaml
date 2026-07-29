@@ -63,4 +63,4 @@ tasks:
       - mkdir -p web
       - typst compile --pdf-standard 2.0 documents/thesis/TFG.typ web/thesis.pdf
     generates:
-      - web/{{ .THESIS }}.pdf
+      - web/thesis.pdf

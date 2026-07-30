@@ -8,17 +8,7 @@
     "tinymist.fontPaths": [
         "${workspaceFolder}/assets/fonts"
     ],
-    "tinymist.syntaxOnly": "auto",
-    "tinymist.formatterMode": "typstyle",
-    "tinymist.preview.partialRendering": true,
-    "tinymist.renderDocs": "enable",
-    "tinymist.compileStatus": "enable",
-    "tinymist.preview.scrollSync": "onSelectionChange",
-    "tinymist.preview.refresh": "onType",
-    "tinymist.previewer": "myriad-dreamin.tinymist",
-    "tinymist.previewFeature": "enable",
     "explorer.fileNesting.enabled": true,
-    "tinymist.rootPath": "/",
     "explorer.fileNesting.patterns": {
         "*.typ": "${capture}.pdf, ${capture}-*.pdf, ${capture}.typ",
         "*-PLAN.typ": "${capture}*.pdf",

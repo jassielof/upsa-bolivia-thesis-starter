@@ -12,12 +12,12 @@
   ),
 )
 
+= Dominio
+hola
+
 #set heading(offset: 1)
 
-= Introducción
-== Definiciones
-== Empresa
-== The Typst Typesetting System
+// #include "chapters/intro.typ"
 = Requerimientos
 == Análisis de Requerimientos
 == Casos de Uso
@@ -36,8 +36,11 @@
 
 == Análisis y Diseño
 == Análisis de Robustez
+
 = Entrega
+
 == Diagramas de Secuencia
+
 == Diagrama de Clase
 #import "@preview/mmdr:0.2.2": mermaid
 
@@ -58,8 +61,10 @@
 )
 
 == Código Fuente
-#import "@preview/codly:1.3.0": codly-init
-#show: codly-init.with()
+// #import "@preview/codly:1.3.0": codly-init
+// #show: codly-init.with()
+Ejemplo de código fuente en C:
+
 #figure(
   ```c
   #include <stdio.h>

@@ -9,6 +9,9 @@
         "${workspaceFolder}/assets/fonts"
     ],
     "explorer.fileNesting.enabled": true,
+    "tinymist.projectResolution": "lockDatabase",
+    "tinymist.preview.scrollSync": "onSelectionChange",
+    "tinymist.lint.enabled": true,
     "explorer.fileNesting.patterns": {
         "*.typ": "${capture}.pdf, ${capture}-*.pdf, ${capture}.typ",
         "*-PLAN.typ": "${capture}*.pdf",

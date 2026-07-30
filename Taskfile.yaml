@@ -3,7 +3,6 @@ version: 3
 env:
   TYPST_ROOT: .
   TYPST_FONT_PATHS: assets/fonts
-  TYPST_FEATURES: bundle
 
 vars:
   NAME_INITIALS: ABC # Reemplazar por las iniciales del nombre del autor del trabajo de grado

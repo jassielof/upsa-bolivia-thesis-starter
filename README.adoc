@@ -18,14 +18,14 @@ El repositorio viene con un CI que compila el documento final para verificar su 
 
 === Recomendaciones de uso
 
-- El repositorio ya viene con ajustes y extensiones recomendadas para facilitar el uso de Typst con VS Code.
-- Para compilar el documento final, se recomienda usar link:https://taskfile.dev/[Task], dado que ayuda a automatizar la compilación y demás tareas del documento.
+* El repositorio ya viene con ajustes y extensiones recomendadas para facilitar el uso de Typst con VS Code.
+* Para compilar el documento final, se recomienda usar link:https://taskfile.dev/[Task], dado que ayuda a automatizar la compilación y demás tareas del documento.
 
 === Multimedia y fuentes
 
-- `assets/fonts`: Es el directorio donde vos tendrías que colocar tus fuentes tipográficas, GitHub Actions está configurado para descargar fuentes disponibles mediante link:https://brew.sh/[Homebrew], pero es preferible que guardés tus fuentes en este directorio para omitir la descarga de fuentes en cada compilación.
-  - De igual manera, link:.github/workflows/ci.yaml[] ya está configurado con algunas fuentes a ser descargadas.
-- `assets/images`: Es el directorio donde vos tendrías que colocar tus imágenes, gráficos, diagramas, etc. para tu documento final.
+* `assets/fonts`: Es el directorio donde vos tendrías que colocar tus fuentes tipográficas, GitHub Actions está configurado para descargar fuentes disponibles mediante link:https://brew.sh/[Homebrew], pero es preferible que guardés tus fuentes en este directorio para omitir la descarga de fuentes en cada compilación.
+** De igual manera, link:.github/workflows/ci.yaml[] ya está configurado con algunas fuentes a ser descargadas.
+* `assets/images`: Es el directorio donde vos tendrías que colocar tus imágenes, gráficos, diagramas, etc. para tu documento final.
 
 == Dudas y problemas
 

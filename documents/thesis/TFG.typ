@@ -2,16 +2,7 @@
 
 #let personal-data = yaml("/data/personal.yaml")
 
-#show: tfg.with(
-  contenido: outline(
-    target: heading.where(
-      level: 2,
-      outlined: true,
-      supplement: [Capítulo],
-    ),
-    title: none,
-  ),
-)
+#show: tfg.with()
 
 = Introducción
 

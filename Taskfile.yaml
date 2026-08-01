@@ -4,9 +4,6 @@ env:
   TYPST_ROOT: .
   TYPST_FONT_PATHS: assets/fonts
 
-vars:
-  NAME_INITIALS: ABC # Reemplazar por las iniciales del nombre del autor del trabajo de grado
-
 tasks:
   default:
     desc: Genera los documentos principales del trabajo de grado
@@ -42,7 +39,7 @@ tasks:
       TYPST_ROOT: ../../
     desc: Genera el documento de plan de trabajo
     cmds:
-      - typst compile TFG-PLAN.typ TFG-{{ .NAME_INITIALS }}-PLAN.pdf
+      - typst compile TFG-PLAN.typ
     generates:
       - plan.pdf
   thesis:
@@ -51,7 +48,7 @@ tasks:
       TYPST_ROOT: ../../
     desc: Genera la tesis o documento principal del trabajo de grado
     cmds:
-      - typst compile TFG.typ TFG-{{ .NAME_INITIALS }}.pdf
+      - typst compile TFG.typ
     sources:
       - "**/*.typ"
       - "../../**/*.typ"

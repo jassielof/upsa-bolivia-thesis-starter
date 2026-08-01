@@ -1,4 +1,5 @@
-#import "/template/upsa-bo/lib.typ": anexos, tfg
+#import "/template/upsa-bo/lib.typ": anexos, csl-styles, tfg
+
 #let personal-data = yaml("/data/personal.yaml")
 
 #show: tfg.with(
@@ -12,21 +13,48 @@
   ),
 )
 
-= Dominio
-hola
+= Introducción
 
-#set heading(offset: 1)
+== Definiciones
 
-// #include "chapters/intro.typ"
-= Requerimientos
-== Análisis de Requerimientos
-== Casos de Uso
+#lorem(500)
+
+=== Objetivos
+
 #lorem(20)
+
+==== Objetivo general
+
+#lorem(100)
+
+==== Objetivos específicos
+
+#lorem(50)
+
++ #lorem(100)
++ #lorem(100)
++ #lorem(100)
++ #lorem(100)
++ #lorem(100)
+
+= Desarrollo
+
+== Análisis de requerimientos
+
+#lorem(20)
+
+=== Requerimientos funcionales
+
+#lorem(300)
+
+=== Requerimientos no funcionales
+
+#lorem(500)
 
 #figure(
   table(
     columns: 3,
-    [Caso de Uso], [Actor], [Descripción],
+    table.header([Caso de Uso], [Actor], [Descripción]),
     [CU-01], [Usuario], [El usuario inicia sesión en el sistema.],
     [CU-02], [Administrador], [El administrador gestiona los usuarios.],
     table.hline(),
@@ -34,51 +62,28 @@ hola
   caption: [Tabla de Casos de Uso],
 )
 
-== Análisis y Diseño
-== Análisis de Robustez
+== Pruebas
 
-= Entrega
+=== Código Fuente
 
-== Diagramas de Secuencia
-
-== Diagrama de Clase
-#import "@preview/mmdr:0.2.2": mermaid
+#lorem(10)
 
 #figure(
-  mermaid(
-    "graph TD; A-->B;",
-    base-theme: "default",
-    theme: (
-      background: "#f4f4f4",
-      primary_color: "#ff0000",
-    ),
-    layout: (
-      node_spacing: 50,
-    ),
-  ),
-  alt: "Diagrama de grafo",
-  caption: [Diagrama de grafo],
-)
+  ```go
+  package main
 
-== Código Fuente
-// #import "@preview/codly:1.3.0": codly-init
-// #show: codly-init.with()
-Ejemplo de código fuente en C:
+  import "fmt"
 
-#figure(
-  ```c
-  #include <stdio.h>
-
-  int main() {
-      printf("Hello, World!\n");
-      return 0;
+  func main() {
+      fmt.Println("Hello, World!")
   }
   ```,
-  alt: "Hello World en C",
-  caption: [Ejemplo de código fuente en C],
+  alt: "Hello World en Go",
+  caption: [Ejemplo de código fuente en Go],
 )
 
-== Pruebas
+=== Verificación y validación
+
 #lorem(30)
 
 #figure(
@@ -91,17 +96,57 @@ Ejemplo de código fuente en C:
   alt: "Ecuación de complejidad algorítmica y entropía",
 )
 
+
 = Conclusiones
+
+== Conclusiones
+
+#lorem(50)
+
+=== #lorem(10)
+
+#lorem(40)
+
+=== #lorem(10)
+
+#lorem(40)
+
+=== #lorem(10)
+
+#lorem(40)
+
+=== #lorem(10)
+
+#lorem(40)
+
+=== #lorem(10)
+
+#lorem(40)
+
+== Recomendaciones
+
+#lorem(500)
 
 #bibliography(
   "/data/bib.haya.yaml",
   style: "ieee",
-  title: [Bibliografía],
   full: true,
 )
 
 
+= Anexos
+
 #show: anexos
-= CV
-= Carta de Aprobación
-= Presupuesto
+
+== CV
+
+#lorem(100)
+
+== Carta de Aprobación
+
+#lorem(100)
+
+== Presupuesto
+
+#lorem(100)
+

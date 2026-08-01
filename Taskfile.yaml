@@ -12,6 +12,18 @@ tasks:
       - thesis
       - spine-cover
       - front-cover
+      - cv
+  cv:
+    dir: documents/cv/
+    env:
+      TYPST_ROOT: ../../
+    desc: Genera el documento de curriculum vitae
+    cmds:
+      - typst compile CV.typ
+      - typst compile CV.typ CV.svg
+    generates:
+      - CV.pdf
+      - CV.svg
   spine-cover:
     dir: documents/book/
     env:
@@ -43,6 +55,8 @@ tasks:
     generates:
       - plan.pdf
   thesis:
+    deps:
+      - cv
     dir: documents/thesis/
     env:
       TYPST_ROOT: ../../

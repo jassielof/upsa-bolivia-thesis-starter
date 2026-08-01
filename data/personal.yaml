@@ -1,7 +1,7 @@
 ID: YYYYXXXXXX
-name: Nombre Apellido
-email: ID@estudiantes.upsa.edu.bo
-advisor: Nombre Apellido
+name: Nombre y Apellido/s del autor
+email: registro@estudiantes.upsa.edu.bo
+advisor: Nombre y Apellido/s del asesor
 faculty: "FAI: Facultad de Ingeniería"
 degree: "Licenciatura en Ingeniería de Sistemas"
 title:

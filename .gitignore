@@ -1,4 +1,6 @@
-*.pdf
+documents/**/*.pdf
+documents/**/*.svg
+documents/**/*.png
 .task/
 www/
 web/

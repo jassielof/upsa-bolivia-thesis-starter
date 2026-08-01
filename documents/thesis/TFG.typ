@@ -2,13 +2,36 @@
 
 #let personal-data = yaml("/data/personal.yaml")
 
-#show: tfg.with()
+#show: tfg.with(
+  fonts: (
+    body: "Source Serif 4",
+    title: "Source Sans 3",
+  ),
+)
 
 = Introducción
 
 == Definiciones
 
 #lorem(500)
+
+=== Justificación
+
+#lorem(50)
+
+==== Justificación académica
+
+#lorem(100)
+
+===== Sobre la Universidad
+
+#lorem(100)
+
+====== Historia de la Universidad
+#lorem(100)
+
+====== Misión y Visión de la Universidad
+#lorem(100)
 
 === Objetivos
 
@@ -129,9 +152,13 @@
 
 #show: anexos
 
-== CV
+== Curriculum Vitae
 
-#lorem(100)
+#image(
+  "/documents/cv/CV.svg",
+  alt: "Curriculum Vitae",
+  height: 1fr,
+)
 
 == Carta de Aprobación
 

@@ -1,12 +1,14 @@
 #import "/template/upsa-bo/lib.typ": anexos, csl-styles, tfg
 
 #let personal-data = yaml("/data/personal.yaml")
+#let is-web = eval(sys.inputs.web)
 
 #show: tfg.with(
   fonts: (
     body: "Source Serif 4",
     title: "Source Sans 3",
   ),
+  web-format: is-web
 )
 
 = Introducción
@@ -30,7 +32,7 @@
 ====== Historia de la Universidad
 #lorem(100)
 
-====== Misión y Visión de la Universidad
+======= Misión y Visión de la Universidad
 #lorem(100)
 
 === Objetivos

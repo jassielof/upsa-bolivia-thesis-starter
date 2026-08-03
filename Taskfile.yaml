@@ -72,7 +72,7 @@ tasks:
     desc: Genera los documentos correspondientes para la publicación web
     cmds:
       - mkdir -p web
-      - typst compile --pdf-standard 2.0 documents/thesis/TFG.typ web/thesis.pdf
+      - typst compile --pdf-standard 2.0 --input web=true documents/thesis/TFG.typ web/thesis.pdf
     generates:
       - web/thesis.pdf
   archival:

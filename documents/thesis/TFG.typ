@@ -1,20 +1,27 @@
-#import "/template/upsa-bo/lib.typ": anexos, csl-styles, tfg
+#import "/template/upsa-bo/lib.typ": back-matter, front-matter, main-matter, settings
 
 #let personal-data = yaml("/data/personal.yaml")
 #let is-web = eval(sys.inputs.at("web", default: "false"))
 
-#show: tfg.with(
+#show: settings.with(
   fonts: (
     body: "Source Serif 4",
     title: "Source Sans 3",
   ),
-  resumen: lorem(10),
-  resumen-ejecutivo: lorem(10),
-  problemática: lorem(10),
-  palabras-clave: ("UPSA", "tesis"),
-  objetivo-general: lorem(10),
-  web-format: is-web,
+  graduation-work-info: (
+    abstract: lorem(20),
+    keywords: ("UPSA", "tesis"),
+  ),
+  is-web: is-web,
 )
+
+#front-matter(
+  executive-summary: lorem(50),
+  objective: lorem(30),
+  problem: lorem(20),
+)
+
+#show: main-matter.with()
 
 = Introducción
 
@@ -148,16 +155,15 @@
 
 #lorem(500)
 
+#show: back-matter.with()
+
 #bibliography(
   "/data/bib.haya.yaml",
   style: "ieee",
   full: true,
 )
 
-
 = Anexos
-
-#show: anexos
 
 == Curriculum Vitae
 
@@ -171,7 +177,12 @@
 
 #lorem(100)
 
+= Glosario
+
 == Presupuesto
 
 #lorem(100)
 
+=== Herramientas
+
+#lorem(50)

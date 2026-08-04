@@ -155,7 +155,7 @@
 
 #lorem(500)
 
-
+#show: back-matter.with()
 
 #bibliography(
   "/data/bib.haya.yaml",
@@ -164,8 +164,6 @@
 )
 
 = Anexos
-
-#show: back-matter.with()
 
 == Curriculum Vitae
 

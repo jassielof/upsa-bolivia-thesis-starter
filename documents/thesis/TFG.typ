@@ -177,8 +177,6 @@
 
 #lorem(100)
 
-= Glosario
-
 == Presupuesto
 
 #lorem(100)

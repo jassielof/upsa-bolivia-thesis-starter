@@ -68,6 +68,18 @@ tasks:
       - "../../**/*.typ"
     generates:
       - thesis.pdf
+  study:
+    dir: documents/feasibility/
+    env:
+      TYPST_ROOT: ../../
+    desc: Genera el documento de estudio de factibilidad
+    cmds:
+      - typst compile study.typ
+    generates:
+      - study.pdf
+    sources:
+      - "**/*.typ"
+      - "../../**/*.typ"
   web:
     desc: Genera los documentos correspondientes para la publicación web
     cmds:

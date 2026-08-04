@@ -62,7 +62,7 @@ tasks:
       TYPST_ROOT: ../../
     desc: Genera la tesis o documento principal del trabajo de grado
     cmds:
-      - typst compile TFG.typ
+      - typst compile "TFG copy.typ"
     sources:
       - "**/*.typ"
       - "../../**/*.typ"

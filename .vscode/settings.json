@@ -10,7 +10,7 @@
     ],
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
-        "*.typ": "${capture}.pdf, ${capture}-*.pdf, ${capture}.typ",
+        "*.typ": "${capture}.pdf, ${capture}-*.pdf, ${capture}.svg",
         "*-PLAN.typ": "${capture}*.pdf",
     },
     "yaml.schemas": {

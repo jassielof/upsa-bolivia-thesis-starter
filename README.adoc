@@ -1,8 +1,8 @@
-= Universidad Privada de Santa Cruz de la Sierra: Plantilla oficial para documentos finales de grado
+= Plantilla oficial para trabajos de grado: Universidad Privada de Santa Cruz de la Sierra
 
-Esta es la plantilla oficial de la UPSA para la creación de documentos finales de grado, tesis, etc.
+Plantilla oficial de la Universidad Privada de Santa Cruz de la Sierra para la elaboracion de trabajos de grado.
 
-== Documentación de la plantilla
+== Sobre la plantilla
 
 Información, documentación y demás sobre la plantilla se encuentra en su respectivo link:template/upsa-bo/README.md[README].
 

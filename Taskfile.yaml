@@ -3,7 +3,7 @@ version: 3
 env:
   TYPST_ROOT: .
   TYPST_FONT_PATHS: assets/fonts
-
+# Use "deliverables" for outputs
 tasks:
   default:
     desc: Genera los documentos principales del trabajo de grado

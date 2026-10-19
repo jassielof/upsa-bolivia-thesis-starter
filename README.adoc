@@ -63,7 +63,7 @@ Para probar el kit en el editor web de Typst, incorporá los archivos del proyec
 
 == Estado de los ejemplos
 
-Los ejemplos ilustran configuraciones que deben revisarse con tu carrera o asesor. La selección tipográfica está pendiente de revisión académica; los valores incluidos no acreditan autorización institucional.
+Los ejemplos ilustran configuraciones que deben revisarse con tu carrera o asesor. El conjunto inicial es TeX Gyre: Termes para texto, Heros para títulos, Cursor para código y Termes Math para fórmulas. Su uso está pendiente de revisión académica; los valores incluidos no acreditan autorización institucional.
 
 El ejemplo por partes refleja una organización particular del proyecto. La configuración por capítulos como opción predeterminada y el ajuste de su jerarquía de encabezados están pendientes. Si la exportación PDF/UA informa un error de niveles de encabezados, revisá la estructura; no desactives las comprobaciones para tratar el resultado como accesible.
 
@@ -77,6 +77,10 @@ Git es opcional y permite conservar un historial más preciso de cambios. El ase
 
 El flujo incluido compila los documentos y configura la carga de `out` como artefacto descargable desde la ejecución de Actions. No publica los documentos en GitHub Pages. Si agregás documentos o cambiás sus destinos de salida, verificá que la ruta del artefacto incluya los PDF que quieras descargar.
 
+== Documentación en español
+
+Como apoyo para aprender Typst, consultá la link:https://jassielof.github.io/typst/[traducción no oficial al español], que también ofrece una descarga en PDF. Para los parámetros del kit, usá el README de la plantilla indicado arriba.
+
 == Dudas y problemas
 
 Usá _Issues_ para informar errores del kit y _Discussions_, si está habilitado, para consultas. Incluí el comando utilizado, la versión de Typst y el mensaje de error, evitando compartir datos personales o contenido reservado del trabajo.
@@ -84,3 +88,4 @@ Usá _Issues_ para informar errores del kit y _Discussions_, si está habilitado
 == Licencia
 
 Consultá link:LICENSE.txt[la licencia del repositorio] y las licencias propias de la plantilla, fuentes y demás recursos. La licencia del código del kit no se extiende por sí sola al contenido académico que escribas. El logotipo universitario conserva sus derechos correspondientes.
+

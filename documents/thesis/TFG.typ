@@ -4,10 +4,11 @@
 #let is-web = eval(sys.inputs.at("web", default: "false"))
 
 #show: settings.with(
-  // fonts: (
-  //   body: "Source Serif 4",
-  //   title: "Source Sans 3",
-  // ),
+  fonts: (
+    body: "Source Serif 4",
+    title: "Source Sans 3",
+    size: 11pt,
+  ),
   graduation-work-info: (
     abstract: lorem(20),
     keywords: ("UPSA", "tesis"),
@@ -23,7 +24,25 @@
 
 #show: main-matter.with()
 
+// Este ejemplo conserva la organización por partes de la plantilla actual.
+// Los capítulos y su profundidad deberán ajustarse al criterio de la carrera.
 = Introducción
+
+Este documento combina contenido de demostración en español con texto de relleno para mostrar la composición de un trabajo de grado. El caso ilustrativo es un sistema de seguimiento de solicitudes de préstamo de equipos de laboratorio. No describe una implementación real ni resultados obtenidos en la Universidad.
+
+== Planteamiento del problema
+
+En el escenario ficticio, las solicitudes se registran en archivos separados, lo que dificulta consultar la disponibilidad de equipos y conocer el estado de cada préstamo. El proyecto propone centralizar el registro y mantener una secuencia identificable de solicitud, aprobación, entrega y devolución. Antes de usar este planteamiento en un trabajo real, el estudiante deberá sustituirlo por evidencia de su contexto y delimitar el problema con su asesor.
+
+=== Alcance del ejemplo
+
+La demostración comprende el registro de solicitudes y el seguimiento de sus estados. Se excluyen compras, facturación y mantenimiento físico de equipos. Los nombres de roles y las reglas siguientes son supuestos didácticos, no procedimientos institucionales.
+
++ El solicitante consulta equipos y registra una solicitud.
++ El responsable revisa disponibilidad y aprueba o rechaza la solicitud.
++ El encargado registra la entrega y la devolución del equipo.
+
+Las tablas y referencias de este ejemplo muestran cómo vincular una necesidad con su comprobación posterior; su contenido debe adaptarse al proyecto de cada estudiante.
 
 == Definiciones
 
@@ -90,7 +109,57 @@
   caption: [Tabla de Casos de Uso],
 )
 
+== Trazabilidad de requisitos <trazabilidad>
+
+La @tabla-requisitos vincula los requisitos del caso ficticio con criterios observables. Los identificadores permiten referirse al mismo requisito durante el análisis, el diseño y las pruebas sin repetir su descripción completa.
+
+#figure(
+  table(
+    columns: (auto, 1fr, 1fr),
+    table.header([Identificador], [Requisito ilustrativo], [Criterio de aceptación]),
+    [RF-01], [Registrar una solicitud.], [Con datos válidos se asigna un identificador y el estado pendiente.],
+    [RF-02], [Resolver una solicitud.], [Solo el rol responsable puede aprobarla o rechazarla.],
+    [RF-03], [Consultar el historial.], [Se muestran los cambios de estado y su fecha para una solicitud.],
+    table.hline(),
+  ),
+  caption: [Matriz ilustrativa de requisitos y criterios de aceptación],
+) <tabla-requisitos>
+
+=== Diseño de la solución
+
+Se propone separar la interfaz, las reglas de préstamo y la persistencia de datos. Esta división permite revisar cada responsabilidad y comprobar que una modificación visual no altere las reglas de aprobación. Para un proyecto real, la elección de arquitectura debe justificarse frente a sus restricciones y alternativas.
+
+Cada solicitud contiene un identificador, el equipo, el solicitante y su estado. Las transiciones permitidas son de pendiente a aprobada o rechazada, de aprobada a entregada y de entregada a devuelta. Una solicitud rechazada no permite registrar una entrega. Un diagrama de estados puede complementar esta descripción cuando resulte útil.
+
 == Pruebas
+
+Las pruebas propuestas se derivan de los criterios de la @tabla-requisitos. La tabla siguiente es un plan de comprobación, no un registro de pruebas ejecutadas.
+
+#figure(
+  table(
+    columns: (auto, 1fr, 1fr),
+    table.header([Caso], [Acción], [Resultado esperado]),
+    [CP-01], [Enviar una solicitud con todos los campos obligatorios.], [Se registra una solicitud pendiente con identificador único.],
+    [CP-02], [Intentar aprobar con el rol solicitante.], [Se rechaza la operación y se conserva el estado anterior.],
+    [CP-03], [Intentar entregar una solicitud rechazada.], [No se registra una entrega.],
+    table.hline(),
+  ),
+  caption: [Plan ilustrativo de pruebas funcionales],
+)
+
+=== Presentación de resultados
+
+En una investigación real, esta sección deberá indicar el entorno, la versión evaluada, los casos ejecutados y la evidencia de cada resultado. Una prueba pendiente no debe presentarse como aprobada. Las observaciones de usuarios se distinguirán de los resultados técnicos y se describirá cómo fueron recogidas.
+
+Para mostrar una expresión matemática sencilla, puede definirse la proporción de casos aprobados como:
+
+#math.equation(
+  block: true,
+  alt: "La proporción p es igual al número de casos aprobados dividido entre el número de casos ejecutados.",
+  $p = n_a / n_e$,
+)
+
+donde #math.equation(alt: "n subíndice a", $n_a$) es el número de casos aprobados y #math.equation(alt: "n subíndice e", $n_e$) el número de casos ejecutados, siempre que #math.equation(alt: "n subíndice e es mayor que cero", $n_e > 0$). Esta proporción resume únicamente los casos ejecutados y no demuestra por sí sola la calidad completa del sistema.
 
 === Código Fuente
 
@@ -184,3 +253,5 @@
 === Herramientas
 
 #lorem(50)
+
+

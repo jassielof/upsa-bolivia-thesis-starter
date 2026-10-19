@@ -1,13 +1,13 @@
-#import "/template/upsa-bo/lib.typ": back-matter, front-matter, main-matter, settings
+#import "/template/lib.typ": back-matter, front-matter, main-matter, settings
 
 #let personal-data = yaml("/data/personal.yaml")
 #let is-web = eval(sys.inputs.at("web", default: "false"))
 
 #show: settings.with(
-  fonts: (
-    body: "Source Serif 4",
-    title: "Source Sans 3",
-  ),
+  // fonts: (
+  //   body: "Source Serif 4",
+  //   title: "Source Sans 3",
+  // ),
   graduation-work-info: (
     abstract: lorem(20),
     keywords: ("UPSA", "tesis"),

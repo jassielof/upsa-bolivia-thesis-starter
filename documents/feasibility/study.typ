@@ -1,4 +1,4 @@
-#import "/template/upsa-bo/lib.typ": back-matter, front-matter, main-matter, settings
+#import "/template/lib.typ": back-matter, front-matter, main-matter, settings
 
 #show: settings.with(
   graduation-work-info: (

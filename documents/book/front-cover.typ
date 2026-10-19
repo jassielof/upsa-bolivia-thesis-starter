@@ -1,3 +1,3 @@
-#import "/template/upsa-bo/lib.typ": front-cover
+#import "/template/lib.typ": front-cover
 
 #front-cover

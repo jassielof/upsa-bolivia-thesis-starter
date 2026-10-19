@@ -14,78 +14,66 @@ tasks:
       - front-cover
       - cv
   cv:
-    dir: documents/cv/
-    env:
-      TYPST_ROOT: ../../
     desc: Genera el documento de curriculum vitae
     cmds:
-      - typst compile CV.typ
-      - typst compile CV.typ CV.svg
+      - typst compile documents/cv/CV.typ
+      - typst compile --format svg documents/cv/CV.typ
+    sources:
+      - documents/cv/CV.typ
     generates:
-      - CV.pdf
-      - CV.svg
+      - documents/cv/CV.pdf
+      - documents/cv/CV.svg
   spine-cover:
-    dir: documents/book/
-    env:
-      TYPST_ROOT: ../../
     desc: Genera el lomo del libro
     cmds:
-      - typst compile spine-cover.typ
+      - typst compile documents/book/spine-cover.typ
     sources:
-      - spine-cover.typ
-      - ../../**/*.typ
+      - documents/book/spine-cover.typ
+      - "template/**/*.typ"
     generates:
-      - spine-cover.pdf
+      - documents/book/spine-cover.pdf
   front-cover:
-    dir: documents/book/
-    env:
-      TYPST_ROOT: ../../
     desc: Genera la portada (tapa externa) del libro
     cmds:
-      - typst compile front-cover.typ
+      - typst compile documents/book/front-cover.typ
+    sources:
+      - documents/book/front-cover.typ
+      - "template/**/*.typ"
     generates:
-      - front-cover.pdf
+      - documents/book/front-cover.pdf
   abstract:
-    dir: documents/abstract/
-    env:
-      TYPST_ROOT: ../../
     desc: Genera el documento de resumen
     cmds:
-      - typst compile abstract.typ
+      - typst compile documents/abstract/abstract.typ
+    sources:
+      - documents/abstract/abstract.typ
     generates:
-      - abstract.pdf
+      - documents/abstract/abstract.pdf
   plan:
-    dir: documents/plan/
-    env:
-      TYPST_ROOT: ../../
     desc: Genera el documento de plan de trabajo
     cmds:
-      - typst compile TFG-PLAN.typ
+      - typst compile documents/plan/TFG-PLAN.typ
+    sources:
+      - documents/plan/TFG-PLAN.typ
     generates:
-      - plan.pdf
+      - documents/plan/TFG-PLAN.pdf
   thesis:
     deps:
       - cv
-    dir: documents/thesis/
-    env:
-      TYPST_ROOT: ../../
     desc: Genera la tesis o documento principal del trabajo de grado
     cmds:
-      - typst compile --pdf-standard ua-1,a-3a TFG.typ
+      - typst compile --pdf-standard ua-1,a-3a documents/thesis/TFG.typ
     sources:
-      - "**/*.typ"
-      - "../../**/*.typ"
+      - "documents/thesis/**/*.typ"
+      - "template/**/*.typ"
     generates:
-      - thesis.pdf
+      - documents/thesis/TFG.pdf
   study:
-    dir: documents/feasibility/
-    env:
-      TYPST_ROOT: ../../
     desc: Genera el documento de estudio de factibilidad
     cmds:
-      - typst compile study.typ
+      - typst compile documents/feasibility/study.typ
     generates:
-      - study.pdf
+      - documents/feasibility/study.pdf
     sources:
-      - "**/*.typ"
-      - "../../**/*.typ"
+      - "documents/feasibility/**/*.typ"
+      - "template/**/*.typ"

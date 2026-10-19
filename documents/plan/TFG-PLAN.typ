@@ -1,4 +1,4 @@
-#import "../../template/upsa-bo/lib.typ": all-outlines, back-matter, front-matter, main-matter, settings, title-page
+#import "/template/lib.typ": all-outlines, back-matter, front-matter, main-matter, settings, title-page
 
 #show: settings.with(
   fonts: (

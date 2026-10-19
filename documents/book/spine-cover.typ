@@ -1,9 +1,9 @@
-#import "/template/upsa-bo/lib.typ": settings, spine
+#import "/template/lib.typ": settings, spine
 
 #show: settings.with(
   fonts: (
     body: "Source Sans 3",
-    title: "Source Serif 4 Display",
+    title: "Source Serif 4",
     size: 12pt,
   ),
 )

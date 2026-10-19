@@ -3,13 +3,13 @@ version: 3
 env:
   TYPST_ROOT: .
   TYPST_FONT_PATHS: assets/fonts
-# Use "deliverables" for outputs
 tasks:
   default:
     desc: Genera los documentos principales del trabajo de grado
     deps:
       - plan
       - thesis
+      - abstract
       - spine-cover
       - front-cover
       - cv
@@ -45,6 +45,15 @@ tasks:
       - typst compile front-cover.typ
     generates:
       - front-cover.pdf
+  abstract:
+    dir: documents/abstract/
+    env:
+      TYPST_ROOT: ../../
+    desc: Genera el documento de resumen
+    cmds:
+      - typst compile abstract.typ
+    generates:
+      - abstract.pdf
   plan:
     dir: documents/plan/
     env:
@@ -62,7 +71,7 @@ tasks:
       TYPST_ROOT: ../../
     desc: Genera la tesis o documento principal del trabajo de grado
     cmds:
-      - typst compile TFG.typ
+      - typst compile --pdf-standard ua-1,a-3a TFG.typ
     sources:
       - "**/*.typ"
       - "../../**/*.typ"
@@ -80,22 +89,3 @@ tasks:
     sources:
       - "**/*.typ"
       - "../../**/*.typ"
-  web:
-    desc: Genera los documentos correspondientes para la publicación web
-    cmds:
-      - mkdir -p web
-      - typst compile --pdf-standard 2.0 --input web=true documents/thesis/TFG.typ web/thesis.pdf
-    generates:
-      - web/thesis.pdf
-  archival:
-    desc: Genera los documentos correspondientes para fines de preservación a largo plazo
-    cmds:
-      - mkdir -p archival
-      - typst compile --pdf-standard a-4f documents/thesis/TFG.typ archival/thesis.pdf
-    generates:
-      - archival/thesis.pdf
-  accessibility:
-    desc: Genera los documentos correspondientes con estándares de accesibilidad
-    cmds:
-      - mkdir -p accessibility
-      - typst compile --pdf-standard ua-1 documents/thesis/TFG.typ accessibility/thesis.pdf

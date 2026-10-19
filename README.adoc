@@ -1,4 +1,14 @@
 = Plantilla oficial para trabajos de grado: Universidad Privada de Santa Cruz de la Sierra
+Jassiel O._F.
+:source-highlighter: highlight.js
+:linkcss:
+:icons: font
+:!copycss:
+:toc: auto
+:sectanchors:
+:experimental:
+:stylesdir: https://jassielof.github.io/asciidoctor-styles/
+:stylesheet: vivienne.css
 
 Plantilla oficial de la Universidad Privada de Santa Cruz de la Sierra para la elaboracion de trabajos de grado.
 
@@ -12,6 +22,7 @@ Para crear tu repositorio en base a este modelo, seguí los pasos de la link:htt
 
 La plantilla hace uso de link:https://git-scm.com/book/en/v2/Git-Tools-Submodules[Git Submodules], al momento de clonar el repositorio, vas a necesitar clonarlo con la opción `--recurse-submodules` para que se descargue el submódulo de la plantilla oficial.
 
+// TODO: GitHub Pages is not needed anymore, as students might just simply not need or wish to make their thesis public, and they might just forget to disable it. Instead just use artifacts for easy download whenever they want.
 === GitHub Actions & Pages
 
 El repositorio viene con un CI que compila el documento final para verificar su correcta compilación y además publicarlo en GitHub Pages, por defecto se usa GitHub Actions para compilar el documento, esto se tiene que link:https://docs.github.com/es/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publicaci%C3%B3n-con-un-flujo-de-trabajo-personalizado-github-actions[configurar en los ajustes de tu repositorio].
@@ -21,10 +32,12 @@ El repositorio viene con un CI que compila el documento final para verificar su 
 * El repositorio ya viene con ajustes y extensiones recomendadas para facilitar el uso de Typst con VS Code.
 * Para compilar el documento final, se recomienda usar link:https://taskfile.dev/[Task], dado que ayuda a automatizar la compilación y demás tareas del documento.
 
+// TODO: Homebrew is not needed anymore, students should just download and keep the fonts under assets/fonts as that makes it easier to manage and avoid downloading fonts every time the document is compiled, as well the fonts are easily cloned along wherever the repository is cloned.
 === Multimedia y fuentes
 
-* `assets/fonts`: Es el directorio donde vos tendrías que colocar tus fuentes tipográficas, GitHub Actions está configurado para descargar fuentes disponibles mediante link:https://brew.sh/[Homebrew], pero es preferible que guardés tus fuentes en este directorio para omitir la descarga de fuentes en cada compilación.
-** De igual manera, link:.github/workflows/ci.yaml[] ya está configurado con algunas fuentes a ser descargadas.
+* `assets/fonts`: Es el directorio donde vos tendrías que colocar tus fuentes tipográficas, GitHub Actions está configurado para descargar fuentes disponibles mediante link:https://brew.sh/[Homebrew], pero es preferible que guardés tus fuentes en este directorio para omitir la descarga de fuentes en cada compilación. Se recomiendan dos sitios para descargar fuentes:
+** link:https://fonts.google.com/[Google Fonts]
+** link:https://www.fontsquirrel.com/[Font Squirrel]
 * `assets/images`: Es el directorio donde vos tendrías que colocar tus imágenes, gráficos, diagramas, etc. para tu documento final.
 
 == Dudas y problemas

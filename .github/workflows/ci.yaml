@@ -1,4 +1,4 @@
-name: CI
+name: Integración continua
 
 on:
   push:
@@ -7,44 +7,20 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 jobs:
   docs:
-    name: Documents
+    name: Documentos
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
-      - name: Set up Typst
-        uses: typst-community/setup-typst@v5
-      - name: Set up Task
-        uses: go-task/setup-task@v2
-      - name: Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@main
-        id: set-up-homebrew
-      - name: Install fonts
-        run: brew install --cask font-fontawesome font-tex-gyre-{termes{,-math},heros,cursor,chorus} font-source-sans-3 font-source-serif-4
-      - name: Build documents
+      - uses: typst-community/setup-typst@v5
+      - uses: go-task/setup-task@v2
+      - name: Compilar documentos
         run: task
-      - name: Build documents for web deployment
-        run: task web
-      - name: Upload pages artifacts
-        uses: actions/upload-pages-artifact@v5
+      - uses: actions/upload-artifact@v7
         with:
-          path: web
-  deploy:
-    name: Deploy to GitHub Pages
-    runs-on: ubuntu-latest
-    needs: docs
-    if: github.event_name != 'pull_request'
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deployment
-        id: deployment
-        uses: actions/deploy-pages@v5
+          name: Documentos
+          path: out

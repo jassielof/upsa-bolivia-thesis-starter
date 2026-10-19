@@ -1,4 +1,4 @@
-= Plantilla oficial para trabajos de grado: Universidad Privada de Santa Cruz de la Sierra
+= Kit de inicio para trabajos de grado en Typst — UPSA
 Jassiel O._F.
 :source-highlighter: highlight.js
 :linkcss:
@@ -10,42 +10,77 @@ Jassiel O._F.
 :stylesdir: https://jassielof.github.io/asciidoctor-styles/
 :stylesheet: vivienne.css
 
-Plantilla oficial de la Universidad Privada de Santa Cruz de la Sierra para la elaboracion de trabajos de grado.
+Repositorio de inicio para preparar un trabajo de grado con Typst. Contiene documentos de ejemplo, carpetas para recursos y tareas de compilación. Es un proyecto para evaluación y uso voluntario; no implica aprobación oficial de la Universidad.
 
-== Sobre la plantilla
+== Primeros pasos
 
-Información, documentación y demás sobre la plantilla se encuentra en su respectivo link:template/upsa-bo/README.md[README].
+. Copiá este repositorio o creá uno desde el botón _Use this template_ de GitHub.
+. Si usás Git, clonalo con los submódulos para incluir la plantilla:
++
+[source,shell]
+----
+git clone --recurse-submodules <URL-de-tu-repositorio>
+----
++
+Si ya lo clonaste, ejecutá `git submodule update --init --recursive`. Si descargás un ZIP, asegurate de incorporar también el contenido del submódulo `template`; el ZIP del repositorio principal no lo incluye.
+. Instalá Typst y, para usar las tareas incluidas, Task. Conservá las fuentes necesarias en `assets/fonts` y verificá sus licencias.
+. Abrí el documento que quieras preparar, reemplazá los datos del ejemplo y compilalo desde la raíz del repositorio.
 
-== Uso y configuración del repositorio
+La configuración de parámetros, funciones y estilos se explica en el link:template/upsa-bo/README.md[README de la plantilla]. Este archivo describe el uso del kit.
 
-Para crear tu repositorio en base a este modelo, seguí los pasos de la link:https://docs.github.com/es/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template[documentación de GitHub].
+== Documentos y compilación
 
-La plantilla hace uso de link:https://git-scm.com/book/en/v2/Git-Tools-Submodules[Git Submodules], al momento de clonar el repositorio, vas a necesitar clonarlo con la opción `--recurse-submodules` para que se descargue el submódulo de la plantilla oficial.
+[cols="1,2,1",options="header"]
+|===
+|Documento |Archivo principal |Tarea
+|Trabajo de grado |`documents/thesis/TFG.typ` |`task thesis`
+|Plan de trabajo |`documents/plan/TFG-PLAN.typ` |`task plan`
+|Estudio de factibilidad |`documents/feasibility/study.typ` |`task study`
+|Resumen |`documents/abstract/abstract.typ` |`task abstract`
+|Cubierta |`documents/book/front-cover.typ` |`task front-cover`
+|Lomo |`documents/book/spine-cover.typ` |`task spine-cover`
+|Currículum |`documents/cv/CV.typ` |`task cv`
+|===
 
-// TODO: GitHub Pages is not needed anymore, as students might just simply not need or wish to make their thesis public, and they might just forget to disable it. Instead just use artifacts for easy download whenever they want.
-=== GitHub Actions & Pages
+`task` ejecuta las tareas principales; el estudio de factibilidad se genera por separado con `task study`. Consultá `Taskfile.yaml` para ver los comandos y destinos de salida. Las tareas que no indican un destino explícito generan el PDF junto al archivo fuente.
 
-El repositorio viene con un CI que compila el documento final para verificar su correcta compilación y además publicarlo en GitHub Pages, por defecto se usa GitHub Actions para compilar el documento, esto se tiene que link:https://docs.github.com/es/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publicaci%C3%B3n-con-un-flujo-de-trabajo-personalizado-github-actions[configurar en los ajustes de tu repositorio].
+También podés compilar directamente con Typst, indicando la raíz y las fuentes. Por ejemplo:
 
-=== Recomendaciones de uso
+[source,shell]
+----
+typst compile --root . --font-path assets/fonts documents/plan/TFG-PLAN.typ
+----
 
-* El repositorio ya viene con ajustes y extensiones recomendadas para facilitar el uso de Typst con VS Code.
-* Para compilar el documento final, se recomienda usar link:https://taskfile.dev/[Task], dado que ayuda a automatizar la compilación y demás tareas del documento.
+== Recursos y entorno de trabajo
 
-// TODO: Homebrew is not needed anymore, students should just download and keep the fonts under assets/fonts as that makes it easier to manage and avoid downloading fonts every time the document is compiled, as well the fonts are easily cloned along wherever the repository is cloned.
-=== Multimedia y fuentes
+* `assets/fonts`: archivos de las fuentes necesarias y sus licencias. Las fuentes instaladas en tu equipo pueden no estar disponibles en otro equipo o en el editor web.
+* `assets/images`: imágenes y otros recursos gráficos.
+* `data`: archivos de datos utilizados por los ejemplos.
+* `template`: submódulo que contiene la plantilla y su documentación.
+* `.vscode`: ajustes y extensiones recomendadas para trabajar en VS Code.
 
-* `assets/fonts`: Es el directorio donde vos tendrías que colocar tus fuentes tipográficas, GitHub Actions está configurado para descargar fuentes disponibles mediante link:https://brew.sh/[Homebrew], pero es preferible que guardés tus fuentes en este directorio para omitir la descarga de fuentes en cada compilación. Se recomiendan dos sitios para descargar fuentes:
-** link:https://fonts.google.com/[Google Fonts]
-** link:https://www.fontsquirrel.com/[Font Squirrel]
-* `assets/images`: Es el directorio donde vos tendrías que colocar tus imágenes, gráficos, diagramas, etc. para tu documento final.
+Para probar el kit en el editor web de Typst, incorporá los archivos del proyecto, el contenido del submódulo y las fuentes utilizadas, conservando las rutas. Las tareas de Task y GitHub Actions corresponden al entorno local o de automatización; no se ejecutan dentro del editor web. La compatibilidad de los ejemplos debe comprobarse en ese entorno.
+
+== Estado de los ejemplos
+
+Los ejemplos ilustran configuraciones que deben revisarse con tu carrera o asesor. La selección tipográfica está pendiente de revisión académica; los valores incluidos no acreditan autorización institucional.
+
+El ejemplo por partes refleja una organización particular del proyecto. La configuración por capítulos como opción predeterminada y el ajuste de su jerarquía de encabezados están pendientes. Si la exportación PDF/UA informa un error de niveles de encabezados, revisá la estructura; no desactives las comprobaciones para tratar el resultado como accesible.
+
+== Guardado y revisión
+
+Podés guardar el proyecto en una carpeta de OneDrive o Google Drive, conservando sus archivos y rutas. Evitá editar simultáneamente el mismo archivo fuente y guardá las versiones PDF enviadas al asesor con nombres identificables.
+
+Git es opcional y permite conservar un historial más preciso de cambios. El asesor puede revisar el PDF sin utilizar Git ni Typst.
+
+== Compilación en GitHub Actions
+
+El flujo incluido compila los documentos y configura la carga de `out` como artefacto descargable desde la ejecución de Actions. No publica los documentos en GitHub Pages. Si agregás documentos o cambiás sus destinos de salida, verificá que la ruta del artefacto incluya los PDF que quieras descargar.
 
 == Dudas y problemas
 
-Para problemas como tal, usá el apartado de _Issues_ de este repositorio, y para dudas en sí, usá el apartado de _Discussions_.
+Usá _Issues_ para informar errores del kit y _Discussions_, si está habilitado, para consultas. Incluí el comando utilizado, la versión de Typst y el mensaje de error, evitando compartir datos personales o contenido reservado del trabajo.
 
 == Licencia
 
-La licencia de este repositorio es la misma que la de la plantilla oficial link:template/upsa-bo/LICENSE.txt[Apache License 2.0], solo aplica estrictamente a la estructura de la plantilla, no aplica para nada a los documentos de investigación que se generen con la plantilla o con este repositorio modelo.
-
-Los documentos finales para la universidad son propiedad intelectual de sus autores junto a la universidad por fines académicos.
+Consultá link:LICENSE.txt[la licencia del repositorio] y las licencias propias de la plantilla, fuentes y demás recursos. La licencia del código del kit no se extiende por sí sola al contenido académico que escribas. El logotipo universitario conserva sus derechos correspondientes.

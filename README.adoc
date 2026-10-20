@@ -9,83 +9,220 @@ Jassiel O._F.
 :experimental:
 :stylesdir: https://jassielof.github.io/asciidoctor-styles/
 :stylesheet: vivienne.css
+:repo-url: https://github.com/jassielof/upsa-bolivia-thesis-starter
 
-Repositorio de inicio para preparar un trabajo de grado con Typst. Contiene documentos de ejemplo, carpetas para recursos y tareas de compilación. Es un proyecto para evaluación y uso voluntario; no implica aprobación oficial de la Universidad.
+Kit de inicio para elaborar trabajos de grado de la Universidad Privada de Santa Cruz de la Sierra (UPSA) mediante https://typst.app/[Typst]. Incluye documentos de ejemplo, recursos, tareas de compilación y una plantilla reutilizable para mantener la consistencia de la presentación académica.
+
+IMPORTANT: Este proyecto es una iniciativa independiente, disponible para evaluación y uso voluntario. No constituye una plantilla oficial aprobada por la UPSA. Los requisitos del Reglamento de Graduación y las indicaciones de la carrera o del asesor tienen prioridad sobre las configuraciones del kit.
 
 == Primeros pasos
 
-. Copiá este repositorio o creá uno desde el botón _Use this template_ de GitHub.
-. Si usás Git, clonalo con los submódulos para incluir la plantilla:
-+
+=== Requisitos
+
+* https://typst.app/open-source/[Typst]: compilador para generar los documentos PDF.
+* https://git-scm.com/[Git]: necesario para clonar el repositorio y obtener sus submódulos mediante los comandos indicados.
+* https://code.visualstudio.com/[Visual Studio Code]: editor recomendado, aunque no obligatorio.
+* https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist[Tinymist]: extensión recomendada para VS Code, con herramientas de edición, diagnósticos y vista previa de Typst.
+* https://taskfile.dev/[Task]: herramienta opcional para ejecutar las tareas de compilación incluidas.
+
+No es necesario contratar una suscripción de Typst para trabajar localmente con este kit.
+
+=== Obtener el proyecto
+
+La forma recomendada de obtener todos los archivos es clonar el repositorio junto con sus submódulos:
+
 [source,shell]
 ----
-git clone --recurse-submodules <URL-de-tu-repositorio>
+git clone --recurse-submodules {repo-url}
 ----
-+
-Si ya lo clonaste, ejecutá `git submodule update --init --recursive`. Si descargás un ZIP, asegurate de incorporar también el contenido del submódulo `template`; el ZIP del repositorio principal no lo incluye.
-. Instalá Typst y, para usar las tareas incluidas, Task. Conservá las fuentes necesarias en `assets/fonts` y verificá sus licencias.
-. Abrí el documento que quieras preparar, reemplazá los datos del ejemplo y compilalo desde la raíz del repositorio.
 
-La configuración de parámetros, funciones y estilos se explica en el link:template/upsa-bo/README.md[README de la plantilla]. Este archivo describe el uso del kit.
+Si ya clonaste el repositorio sin los submódulos, ejecutá desde su directorio:
+
+[source,shell]
+----
+git submodule update --init --recursive
+----
+
+También podés crear un repositorio propio mediante el botón _Use this template_ de GitHub. Sin embargo, ese procedimiento no garantiza que el contenido del submódulo `template` quede disponible automáticamente. Verificá su presencia e inicializalo cuando corresponda.
+
+Si descargás el repositorio como ZIP, tené en cuenta que GitHub no incorpora automáticamente los archivos de los submódulos. Deberás obtener el contenido de `template` por separado.
+
+=== Preparar el entorno
+
+. Abrí la carpeta del proyecto en VS Code.
+. Instalá la extensión Tinymist.
+. Comprobá que Typst esté disponible desde la terminal.
+. Verificá que el submódulo `template` contenga los archivos de la plantilla.
+. Comprobá la disponibilidad de las fuentes necesarias en `assets/fonts`.
+. Abrí el documento de ejemplo que quieras utilizar y reemplazá sus datos.
+
+La configuración de parámetros, funciones y estilos se explica en el link:template/upsa-bo/README.md[README de la plantilla]. Este archivo se concentra en el uso del kit de inicio.
 
 == Documentos y compilación
 
 [cols="1,2,1",options="header"]
 |===
 |Documento |Archivo principal |Tarea
-|Trabajo de grado |`documents/thesis/TFG.typ` |`task thesis`
-|Plan de trabajo |`documents/plan/TFG-PLAN.typ` |`task plan`
-|Estudio de factibilidad |`documents/feasibility/study.typ` |`task study`
-|Resumen |`documents/abstract/abstract.typ` |`task abstract`
-|Cubierta |`documents/book/front-cover.typ` |`task front-cover`
-|Lomo |`documents/book/spine-cover.typ` |`task spine-cover`
-|Currículum |`documents/cv/CV.typ` |`task cv`
+
+|Trabajo de grado
+|`documents/thesis/TFG.typ`
+|`task thesis`
+
+|Plan de trabajo
+|`documents/plan/TFG-PLAN.typ`
+|`task plan`
+
+|Estudio de factibilidad
+|`documents/feasibility/study.typ`
+|`task study`
+
+|Resumen
+|`documents/abstract/abstract.typ`
+|`task abstract`
+
+|Cubierta
+|`documents/book/front-cover.typ`
+|`task front-cover`
+
+|Lomo
+|`documents/book/spine-cover.typ`
+|`task spine-cover`
+
+|Currículum
+|`documents/cv/CV.typ`
+|`task cv`
 |===
 
-`task` ejecuta las tareas principales; el estudio de factibilidad se genera por separado con `task study`. Consultá `Taskfile.yaml` para ver los comandos y destinos de salida. Las tareas que no indican un destino explícito generan el PDF junto al archivo fuente.
+=== Compilación directa
 
-También podés compilar directamente con Typst, indicando la raíz y las fuentes. Por ejemplo:
+Podés compilar los documentos con Typst, sin instalar Task.
+
+Por ejemplo, para generar el plan de trabajo desde la raíz del repositorio:
 
 [source,shell]
 ----
 typst compile --root . --font-path assets/fonts documents/plan/TFG-PLAN.typ
 ----
 
-== Recursos y entorno de trabajo
+El comando utiliza la raíz del proyecto para resolver los archivos y agrega `assets/fonts` como directorio de búsqueda de fuentes.
 
-* `assets/fonts`: archivos de las fuentes necesarias y sus licencias. Las fuentes instaladas en tu equipo pueden no estar disponibles en otro equipo o en el editor web.
-* `assets/images`: imágenes y otros recursos gráficos.
-* `data`: archivos de datos utilizados por los ejemplos.
-* `template`: submódulo que contiene la plantilla y su documentación.
-* `.vscode`: ajustes y extensiones recomendadas para trabajar en VS Code.
+Si necesitás comprobar que el resultado no dependa de las fuentes instaladas en tu sistema, podés utilizar `--ignore-system-fonts`. Esta opción no elimina las fuentes integradas que Typst proporciona como respaldo.
 
-Para probar el kit en el editor web de Typst, incorporá los archivos del proyecto, el contenido del submódulo y las fuentes utilizadas, conservando las rutas. Las tareas de Task y GitHub Actions corresponden al entorno local o de automatización; no se ejecutan dentro del editor web. La compatibilidad de los ejemplos debe comprobarse en ese entorno.
+=== Compilación mediante Task
 
-== Estado de los ejemplos
+Si instalaste Task, podés generar los documentos con sus tareas correspondientes:
 
-Los ejemplos ilustran configuraciones que deben revisarse con tu carrera o asesor. El conjunto inicial es TeX Gyre: Termes para texto, Heros para títulos, Cursor para código y Termes Math para fórmulas. Su uso está pendiente de revisión académica; los valores incluidos no acreditan autorización institucional.
+[source,shell]
+----
+task thesis
+task plan
+task study
+----
 
-El ejemplo por partes refleja una organización particular del proyecto. La configuración por capítulos como opción predeterminada y el ajuste de su jerarquía de encabezados están pendientes. Si la exportación PDF/UA informa un error de niveles de encabezados, revisá la estructura; no desactives las comprobaciones para tratar el resultado como accesible.
+Consultá `Taskfile.yaml` para conocer los comandos, argumentos y destinos de salida.
 
-== Guardado y revisión
+Las tareas que no indican un destino explícito generan el PDF junto al archivo fuente. El estudio de factibilidad se compila mediante `task study`.
 
-Podés guardar el proyecto en una carpeta de OneDrive o Google Drive, conservando sus archivos y rutas. Evitá editar simultáneamente el mismo archivo fuente y guardá las versiones PDF enviadas al asesor con nombres identificables.
+== Recursos y estructura
 
-Git es opcional y permite conservar un historial más preciso de cambios. El asesor puede revisar el PDF sin utilizar Git ni Typst.
+* `assets/fonts`: fuentes tipográficas utilizadas por los documentos y sus avisos de licencia.
+* `assets/images`: imágenes, logotipos y otros recursos gráficos.
+* `data`: datos utilizados por los documentos de ejemplo.
+* `documents`: archivos principales de los distintos documentos académicos.
+* `template`: submódulo que contiene la plantilla reutilizable y su documentación.
+* `.vscode`: configuración y recomendaciones para VS Code.
+* `.github/workflows`: tareas de automatización mediante GitHub Actions.
+
+IMPORTANT: Las fuentes necesarias deben estar disponibles en el entorno de compilación. Su presencia en otro equipo no garantiza que también estén disponibles en Linux, macOS o el editor web de Typst. Tampoco debe suponerse que cualquier fuente instalada pueda redistribuirse legalmente con el repositorio.
+
+== Uso en el editor web de Typst
+
+El https://typst.app/[editor web de Typst] permite trabajar con proyectos desde el navegador.
+
+Para utilizar este kit, incorporá los archivos del proyecto, las fuentes necesarias y el contenido del submódulo `template`, conservando las rutas utilizadas por los documentos.
+
+Las tareas de Task y GitHub Actions no se ejecutan dentro del editor web. También será necesario comprobar que las importaciones y dependencias funcionen correctamente en ese entorno.
+
+== Estado de la plantilla y los ejemplos
+
+Los documentos incluidos son ejemplos de uso. Sus configuraciones deben comprobarse frente a los requisitos vigentes de la carrera y las indicaciones del asesor.
+
+=== Tipografía
+
+El conjunto tipográfico inicial propuesto es TeX Gyre:
+
+* *Termes*: texto principal con serifas.
+* *Heros*: títulos y encabezados sin serifas.
+* *Cursor*: código y texto monoespaciado.
+* *Termes Math*: expresiones matemáticas.
+
+Este conjunto constituye una alternativa técnica a las fuentes mencionadas en el Reglamento de Graduación, pero su uso académico está pendiente de evaluación y autorización institucional.
+
+Las fuentes distribuidas con el proyecto deben conservar sus correspondientes condiciones de licencia y atribución.
+
+=== Capítulos y partes
+
+La organización por partes del ejemplo original responde a las particularidades de un proyecto desarrollado mediante la metodología ICONIX. No representa una estructura obligatoria para otros trabajos.
+
+Se prevé adoptar los capítulos como estructura predeterminada y permitir partes mediante una configuración opcional, sujeta a aclaración académica.
+
+La jerarquía de encabezados debe ser semánticamente correcta en ambas modalidades. Si aparecen errores durante las comprobaciones de accesibilidad, es necesario corregir la estructura del documento y no simplemente desactivar las comprobaciones.
+
+== Guardado y revisión académica
+
+Los asesores y docentes guía pueden revisar los PDF generados sin instalar Typst ni utilizar Git.
+
+Para una revisión sencilla:
+
+. Generá un PDF del estado actual del documento.
+. Compartilo mediante OneDrive o Google Drive.
+. Recibí las observaciones del asesor.
+. Aplicá las correcciones en los archivos fuente.
+. Generá una nueva versión identificable para la siguiente revisión.
+
+Es conveniente conservar las versiones enviadas a revisión sin sobrescribir los PDF que ya contienen observaciones.
+
+Las funciones de comentarios y anotación dependen del visor utilizado. Algunos comentarios se almacenan en la plataforma y no necesariamente quedan incorporados al archivo PDF descargado.
+
+Git es opcional para la redacción, pero resulta útil para registrar cambios, recuperar versiones y asociar entregas a estados determinados del proyecto.
+
+Si utilizás carpetas sincronizadas con OneDrive o Google Drive, evitá modificar simultáneamente el mismo archivo fuente desde varios equipos.
 
 == Compilación en GitHub Actions
 
-El flujo incluido compila los documentos y configura la carga de `out` como artefacto descargable desde la ejecución de Actions. No publica los documentos en GitHub Pages. Si agregás documentos o cambiás sus destinos de salida, verificá que la ruta del artefacto incluya los PDF que quieras descargar.
+El repositorio incluye un flujo de automatización que compila los documentos y permite descargar el contenido de `out` como artefacto desde la ejecución de GitHub Actions.
+
+Actualmente, este flujo no publica los documentos en GitHub Pages.
+
+Si incorporás nuevos documentos o modificás sus destinos de salida, comprobá que los archivos generados queden incluidos en el artefacto descargable.
+
+No publiques repositorios, documentos o artefactos que contengan información confidencial sin revisar previamente sus permisos de acceso.
 
 == Documentación en español
 
-Como apoyo para aprender Typst, consultá la link:https://jassielof.github.io/typst/[traducción no oficial al español], que también ofrece una descarga en PDF. Para los parámetros del kit, usá el README de la plantilla indicado arriba.
+Como recurso complementario, se encuentra disponible la link:https://jassielof.github.io/typst/[traducción no oficial al español de la documentación de Typst], con una versión web y una descarga en PDF.
+
+Esta traducción fue elaborada con asistencia de herramientas de inteligencia artificial. Ante diferencias o dudas de interpretación, prevalece la https://typst.app/docs/[documentación oficial de Typst].
+
+Para conocer los parámetros y las funciones de esta plantilla, consultá su link:template/upsa-bo/README.md[documentación técnica].
 
 == Dudas y problemas
 
-Usá _Issues_ para informar errores del kit y _Discussions_, si está habilitado, para consultas. Incluí el comando utilizado, la versión de Typst y el mensaje de error, evitando compartir datos personales o contenido reservado del trabajo.
+Podés utilizar _Issues_ para informar errores del kit y _Discussions_, cuando esté habilitado, para consultas generales.
+
+Al informar un problema, procurá incluir:
+
+* El documento y comando utilizados.
+* La versión de Typst.
+* El mensaje de error.
+* Los pasos necesarios para reproducir el problema.
+
+Evitá publicar datos personales, información confidencial de investigaciones o contenido reservado de trabajos académicos.
 
 == Licencia
 
-Consultá link:LICENSE.txt[la licencia del repositorio] y las licencias propias de la plantilla, fuentes y demás recursos. La licencia del código del kit no se extiende por sí sola al contenido académico que escribas. El logotipo universitario conserva sus derechos correspondientes.
+Consultá link:LICENSE.txt[la licencia del repositorio] y las licencias correspondientes a la plantilla, las fuentes tipográficas y los demás recursos incluidos.
 
+La licencia del código del kit no se extiende automáticamente al contenido académico elaborado por cada estudiante.
+
+El nombre y los signos distintivos de la UPSA, incluido su logotipo, conservan los derechos que correspondan a sus respectivos titulares.

@@ -8,13 +8,13 @@
 #set page(margin: 0.5in)
 
 #introduction(
-  name: personal-data.name,
+  name: personal-data.author.name,
   details: [
     LinkedIn
     #h(1em)
     GitHub
     #h(1em)
-    #personal-data.email
+    #personal-data.author.email
   ],
 )
 

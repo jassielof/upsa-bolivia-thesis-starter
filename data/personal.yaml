@@ -1,8 +1,14 @@
-ID: YYYYXXXXXX
-name: Nombre y Apellido/s del autor
-email: registro@estudiantes.upsa.edu.bo
-advisor: Nombre y Apellido/s del asesor
-faculty: "FAI: Facultad de Ingeniería"
+author:
+  ID: YYYYXXXXXX
+  name: Nombre/s y Apellido/s del autor
+  email: registro@estudiantes.upsa.edu.bo
+advisor: Nombre/s y Apellido/s del asesor
+institution:
+  name: Universidad Privada de Santa Cruz de la Sierra
+  short: UPSA
+  faculty:
+    name: Facultad de Ingeniería
+    short: FAI
 degree: Licenciatura en Ingeniería de Sistemas
 title: Títutlo oficial del documento
 subtitle: Títutlo o sub-titulo del documento

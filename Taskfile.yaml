@@ -46,6 +46,8 @@ tasks:
     cmds:
       - typst compile documents/abstract/abstract.typ
     sources:
+      - "template/**/*.typ"
+      - documents/data/personal.yaml
       - documents/abstract/abstract.typ
     generates:
       - documents/abstract/abstract.pdf
@@ -55,6 +57,8 @@ tasks:
       - typst compile documents/plan/TFG-PLAN.typ
     sources:
       - documents/plan/TFG-PLAN.typ
+      - "documents/plan/**/*.typ"
+      - "template/**/*.typ"
     generates:
       - documents/plan/TFG-PLAN.pdf
   thesis:

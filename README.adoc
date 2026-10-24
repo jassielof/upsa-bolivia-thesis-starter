@@ -32,9 +32,9 @@ No es necesario contratar una suscripción de Typst para trabajar localmente con
 La forma recomendada de obtener todos los archivos es clonar el repositorio junto con sus submódulos:
 
 [source,shell]
-----
-git clone --recurse-submodules {repo-url}
-----
+....
+git clone --recurse-submodules <nombre del repositorio copiado>
+....
 
 Si ya clonaste el repositorio sin los submódulos, ejecutá desde su directorio:
 
@@ -43,6 +43,7 @@ Si ya clonaste el repositorio sin los submódulos, ejecutá desde su directorio:
 git submodule update --init --recursive
 ----
 
+// TODO: Students are supposed to initially clone this repository by the GitHub template button, as this is a template repository, since it's for thesis, so they'd have to track their changes.
 También podés crear un repositorio propio mediante el botón _Use this template_ de GitHub. Sin embargo, ese procedimiento no garantiza que el contenido del submódulo `template` quede disponible automáticamente. Verificá su presencia e inicializalo cuando corresponda.
 
 Si descargás el repositorio como ZIP, tené en cuenta que GitHub no incorpora automáticamente los archivos de los submódulos. Deberás obtener el contenido de `template` por separado.
@@ -198,7 +199,7 @@ Si incorporás nuevos documentos o modificás sus destinos de salida, comprobá 
 
 No publiques repositorios, documentos o artefactos que contengan información confidencial sin revisar previamente sus permisos de acceso.
 
-== Documentación en español
+== Documentación de Typst en español
 
 Como recurso complementario, se encuentra disponible la link:https://jassielof.github.io/typst/[traducción no oficial al español de la documentación de Typst], con una versión web y una descarga en PDF.
 
@@ -219,10 +220,8 @@ Al informar un problema, procurá incluir:
 
 Evitá publicar datos personales, información confidencial de investigaciones o contenido reservado de trabajos académicos.
 
-== Licencia
+== Licencias y avisos de terceros
 
-Consultá link:LICENSE.txt[la licencia del repositorio] y las licencias correspondientes a la plantilla, las fuentes tipográficas y los demás recursos incluidos.
+El kit de inicio como tal se distribuye bajo la licencia link:./LICENSE.txt[CC BY-NC-SA 4.0]. La plantilla de Typst incluida como submódulo se distribuye bajo su propia licencia. Mas cabe recalcar, que esta licencia solo cubre la plantilla y estructura del repositorio como tal.
 
-La licencia del código del kit no se extiende automáticamente al contenido académico elaborado por cada estudiante.
-
-El nombre y los signos distintivos de la UPSA, incluido su logotipo, conservan los derechos que correspondan a sus respectivos titulares.
+Los avisos de terceros sobre las fuentes tipográficas redistribuidas se encuentran (en inglés) en link:NOTICE.adoc[]

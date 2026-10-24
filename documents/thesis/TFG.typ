@@ -1,6 +1,6 @@
 #import "/template/lib.typ": back-matter, front-matter, main-matter, settings
 
-#let personal-data = yaml("/data/personal.yaml")
+#let personal-data = yaml("/CITATION.cff")
 #let is-web = eval(sys.inputs.at("web", default: "false"))
 
 #show: settings.with(
@@ -139,7 +139,9 @@ Las pruebas propuestas se derivan de los criterios de la @tabla-requisitos. La t
   table(
     columns: (auto, 1fr, 1fr),
     table.header([Caso], [Acción], [Resultado esperado]),
-    [CP-01], [Enviar una solicitud con todos los campos obligatorios.], [Se registra una solicitud pendiente con identificador único.],
+    [CP-01],
+    [Enviar una solicitud con todos los campos obligatorios.],
+    [Se registra una solicitud pendiente con identificador único.],
     [CP-02], [Intentar aprobar con el rol solicitante.], [Se rechaza la operación y se conserva el estado anterior.],
     [CP-03], [Intentar entregar una solicitud rechazada.], [No se registra una entrega.],
     table.hline(),

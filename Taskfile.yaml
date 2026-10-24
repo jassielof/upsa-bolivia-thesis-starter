@@ -47,6 +47,7 @@ tasks:
       - typst compile documents/abstract/abstract.typ
     sources:
       - "template/**/*.typ"
+      - CITATION.bib
       - documents/data/personal.yaml
       - documents/abstract/abstract.typ
     generates:
@@ -62,6 +63,8 @@ tasks:
     generates:
       - documents/plan/TFG-PLAN.pdf
   thesis:
+    aliases:
+      - tfg
     deps:
       - cv
     desc: Genera la tesis o documento principal del trabajo de grado
@@ -69,6 +72,7 @@ tasks:
       - typst compile --pdf-standard ua-1,a-3a documents/thesis/TFG.typ
     sources:
       - "documents/thesis/**/*.typ"
+      - CITATION.cff
       - "template/**/*.typ"
     generates:
       - documents/thesis/TFG.pdf

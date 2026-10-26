@@ -1,11 +1,28 @@
 # Normalize text in the index and keep LF in every checkout, including Windows.
 * text=auto eol=lf
 
-# Third-party font assets should not count toward repository language statistics.
+# Academic source & bibliography files
+*.typ text
+*.tex text diff=tex
+*.sty text diff=tex
+*.cls text diff=tex
+*.bib text
+*.csl text
+
+# Vector graphics: normalize line endings as XML text, but suppress noisy path diffs.
+*.svg text -diff
+
+# Third-party or generated assets should not count toward language statistics.
 assets/fonts/** linguist-vendored
 
-# Font binaries must never undergo line-ending conversion.
-*.ttf -text
-*.otf -text
-*.woff -text
-*.woff2 -text
+# Font binaries must never undergo line-ending conversion, text diffing, or text merging.
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+
+# Raster image assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary

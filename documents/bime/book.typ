@@ -1,4 +1,4 @@
-#import "/template/lib.typ": bime-abstract, front-cover, settings, spine
+#import "/template/lib.typ": bime-abstract, book-front-cover, book-spine-cover, settings
 
 // #import "@preview/citegeist:0.3.1": load-bibliography
 // #let bib = load-bibliography(read("/CITATION.bib"))
@@ -12,11 +12,11 @@
 #document("abstract.pdf", bime-abstract())
 
 #document("front-cover.pdf")[
-  #front-cover
+  #book-front-cover
 ]
 
 #document("spine-cover.pdf")[
-  #spine.cover(
+  #book-spine-cover(
     // volumes: 2
   )
 ]

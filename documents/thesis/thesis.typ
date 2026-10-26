@@ -16,6 +16,7 @@
   abstract: lorem(200),
   keywords: ("UPSA", "tesis"),
   date: datetime.today().year(),
+  paper-size: "a4",
 )
 
 #front-matter(

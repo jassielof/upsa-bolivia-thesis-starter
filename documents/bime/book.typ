@@ -5,7 +5,6 @@
 // #let bib-fields = bib.ovando2026.fields
 #document(
   "thesis.pdf",
-  format: "pdf",
   include "/documents/thesis/TFG.typ",
 )
 

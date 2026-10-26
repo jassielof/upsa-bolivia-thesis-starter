@@ -1,19 +1,21 @@
 #import "/template/lib.typ": back-matter, front-matter, main-matter, settings
 
-#let personal-data = yaml("/CITATION.cff")
-#let is-web = eval(sys.inputs.at("web", default: "false"))
-
 #show: settings.with(
-  fonts: (
-    body: "Source Serif 4",
-    title: "Source Sans 3",
-    size: 11pt,
-  ),
-  graduation-work-info: (
-    abstract: lorem(20),
-    keywords: ("UPSA", "tesis"),
-  ),
-  is-web: is-web,
+  typeface: "Reforma",
+  author-name: "Jassiel Ovando Franco",
+  author-university-id: 2021117600,
+  work-title: [El título de esta tesis es «Esperanza»],
+  author-email: "a2021117600@estudiantes.upsa.edu.bo",
+  supervisor: [Nombre del guía de tesis],
+  degree-level: [Licenciatura],
+  degree-program: [Ingeniería de Sistemas],
+  faculty: [Facultad de Ingeniería],
+  modality: [Proyecto de Grado],
+  modality-acronym: [PG],
+  faculty-acronym: [FAI],
+  abstract: lorem(200),
+  keywords: ("UPSA", "tesis"),
+  date: datetime.today().year(),
 )
 
 #front-matter(
@@ -255,5 +257,3 @@ donde #math.equation(alt: "n subíndice a", $n_a$) es el número de casos aproba
 === Herramientas
 
 #lorem(50)
-
-

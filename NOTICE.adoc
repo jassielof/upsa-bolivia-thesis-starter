@@ -1,1 +1,9 @@
-= Aviso de terceros
+= Third-Party Notices
+
+== Typefaces and Fonts
+
+This repository bundles third-party fonts under the link::assets/fonts/[] directory solely to ensure consistent and reliable documents with Typst.
+
+The primary license for this GitHub Template Repository and derived works does not apply or cover the contents of the bundled fonts. All fonts are distributed strictly under its respective original license.
+
+For more information about the licenses of the bundled fonts, please refer to the respective font license files.

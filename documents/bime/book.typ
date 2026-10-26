@@ -1,4 +1,4 @@
-#import "/template/lib.typ": bime-abstract, book-front-cover, book-spine-cover, print-layout-state
+#import "/template/lib.typ": bime-abstract, book-front-cover, book-spine-cover, get-biblatex, print-layout-state
 
 #document(
   "thesis.pdf",
@@ -16,3 +16,4 @@
 
 #document("spine-cover.pdf", book-spine-cover())
 
+#get-biblatex()

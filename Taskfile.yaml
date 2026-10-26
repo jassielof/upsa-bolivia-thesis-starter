@@ -29,13 +29,13 @@ tasks:
       TYPST_FEATURES: bundle
     desc: Genera los documentos requeridos para la BIME
     cmds:
-      - typst compile --format bundle --pdf-standard a-3a documents/bime/book.typ
+      - typst compile --format bundle --pdf-standard ua-1,a-3a documents/bime/book.typ
     sources:
       - "template/**/*.typ"
-      - documents/bime/book.typ
+      - "documents/bime/book.typ"
     generates:
-      - documents/bime/book/**/*.pdf
-      - documents/bime/book/**/*.bib
+      - "documents/bime/book/**/*.pdf"
+      - "documents/bime/book/**/*.bib"
   proposal:
     desc: Genera el documento de plan de trabajo
     cmds:

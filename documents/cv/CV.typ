@@ -1,5 +1,4 @@
 #import "@preview/butterick-resume:0.1.1": introduction, template, two-grid
-#let personal-data = yaml("/data/personal.yaml")
 
 #set text(lang: "es", region: "bo")
 
@@ -8,13 +7,13 @@
 #set page(margin: 0.5in)
 
 #introduction(
-  name: personal-data.author.name,
+  name: [Nombre y Apellido],
   details: [
     LinkedIn
     #h(1em)
     GitHub
     #h(1em)
-    #personal-data.author.email
+    Correo electrónico
   ],
 )
 

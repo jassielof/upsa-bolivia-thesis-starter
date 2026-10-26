@@ -1,7 +1,7 @@
 #import "/template/lib.typ": back-matter, front-matter, main-matter, settings
 
 #show: settings.with(
-  typeface: "Reforma",
+  typeface: "Alegreya",
   author-name: "Jassiel Ovando Franco",
   author-university-id: 2021117600,
   work-title: [El título de esta tesis es «Esperanza»],

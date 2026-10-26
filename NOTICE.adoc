@@ -2,8 +2,10 @@
 
 == Typefaces and Fonts
 
-This repository bundles third-party fonts under the link::assets/fonts/[] directory solely to ensure consistent and reliable documents with Typst.
+This repository bundles third-party fonts under the link:assets/fonts/[] directory solely to ensure consistent and reliable document compilation with Typst.
 
-The primary license for this GitHub Template Repository and derived works does not apply or cover the contents of the bundled fonts. All fonts are distributed strictly under its respective original license.
+The primary license governing this repository does not apply to the bundled fonts. All fonts are distributed strictly under their respective upstream licenses.
 
-For more information about the licenses of the bundled fonts, please refer to the respective font license files.
+For licensing and copyright information, please refer to the license and notice files located in each font family's directory under `assets/fonts/`.
+
+NOTE: Archives are preserved in their originally extracted state.

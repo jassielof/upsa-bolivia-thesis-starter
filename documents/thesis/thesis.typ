@@ -60,7 +60,6 @@ Las tablas y referencias de este ejemplo muestran cómo vincular una necesidad c
 #lorem(100)
 
 ===== Sobre la Universidad
-
 #lorem(100)
 
 ====== Historia de la Universidad

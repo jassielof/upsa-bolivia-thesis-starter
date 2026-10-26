@@ -23,25 +23,9 @@ tasks:
     generates:
       - documents/cv/CV.pdf
       - documents/cv/CV.svg
-  spine-cover:
-    desc: Genera el lomo del libro
-    cmds:
-      - typst compile documents/book/spine-cover.typ
-    sources:
-      - documents/book/spine-cover.typ
-      - "template/**/*.typ"
-    generates:
-      - documents/book/spine-cover.pdf
-  front-cover:
-    desc: Genera la portada (tapa externa) del libro
-    cmds:
-      - typst compile documents/book/front-cover.typ
-    sources:
-      - documents/book/front-cover.typ
-      - "template/**/*.typ"
-    generates:
-      - documents/book/front-cover.pdf
   bime:
+    deps:
+      - thesis
     env:
       TYPST_FEATURES: bundle
     desc: Genera los documentos requeridos para la BIME

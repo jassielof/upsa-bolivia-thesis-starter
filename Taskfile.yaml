@@ -41,17 +41,18 @@ tasks:
       - "template/**/*.typ"
     generates:
       - documents/book/front-cover.pdf
-  abstract:
-    desc: Genera el documento de resumen
+  bime:
+    env:
+      TYPST_FEATURES: bundle
+    desc: Genera los documentos requeridos para la BIME
     cmds:
-      - typst compile documents/abstract/abstract.typ
+      - typst compile --format bundle --pdf-standard a-3a documents/bime/book.typ
     sources:
       - "template/**/*.typ"
-      - CITATION.bib
-      - documents/data/personal.yaml
-      - documents/abstract/abstract.typ
+      - CITATION.cff
+      - documents/bime/book.typ
     generates:
-      - documents/abstract/abstract.pdf
+      - documents/bime/book.pdf
   plan:
     desc: Genera el documento de plan de trabajo
     cmds:

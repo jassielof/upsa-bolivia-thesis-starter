@@ -7,14 +7,10 @@ tasks:
   default:
     desc: Genera los documentos principales del trabajo de grado
     deps:
-      - plan
-      - thesis
-      - abstract
-      - spine-cover
-      - front-cover
-      - cv
+      - proposal
+      - bime
   cv:
-    desc: Genera el documento de curriculum vitae
+    desc: Genera el documento de Curriculum Vitae
     cmds:
       - typst compile documents/cv/CV.typ
       - typst compile --format svg documents/cv/CV.typ
@@ -24,6 +20,9 @@ tasks:
       - documents/cv/CV.pdf
       - documents/cv/CV.svg
   bime:
+    aliases:
+      - bime-book
+      - book
     deps:
       - thesis
     env:
@@ -33,20 +32,21 @@ tasks:
       - typst compile --format bundle --pdf-standard a-3a documents/bime/book.typ
     sources:
       - "template/**/*.typ"
-      - CITATION.cff
       - documents/bime/book.typ
     generates:
-      - documents/bime/book.pdf
-  plan:
+      - documents/bime/book/**/*.pdf
+      - documents/bime/book/**/*.bib
+  proposal:
     desc: Genera el documento de plan de trabajo
     cmds:
-      - typst compile documents/plan/TFG-PLAN.typ
+      - typst compile documents/proposal/proposal.typ
     sources:
-      - documents/plan/TFG-PLAN.typ
-      - "documents/plan/**/*.typ"
+      - documents/proposal/proposal.typ
+      - "documents/proposal/**/*.typ"
+      - "assets/images/**/*"
       - "template/**/*.typ"
     generates:
-      - documents/plan/TFG-PLAN.pdf
+      - documents/proposal/proposal.pdf
   thesis:
     aliases:
       - tfg
@@ -54,13 +54,13 @@ tasks:
       - cv
     desc: Genera la tesis o documento principal del trabajo de grado
     cmds:
-      - typst compile --pdf-standard ua-1,a-3a documents/thesis/TFG.typ
+      - typst compile --pdf-standard ua-1,a-3a documents/thesis/thesis.typ
     sources:
       - "documents/thesis/**/*.typ"
-      - CITATION.cff
+      - "assets/images/**/*"
       - "template/**/*.typ"
     generates:
-      - documents/thesis/TFG.pdf
+      - documents/thesis/thesis.pdf
   study:
     desc: Genera el documento de estudio de factibilidad
     cmds:
@@ -70,3 +70,4 @@ tasks:
     sources:
       - "documents/feasibility/**/*.typ"
       - "template/**/*.typ"
+      - "assets/images/**/*"

@@ -3,7 +3,7 @@
 #document(
   "thesis.pdf",
   {
-    include "/documents/thesis/TFG.typ"
+    include "/documents/thesis/thesis.typ"
     print-layout-state.update("duplex")
   },
 )

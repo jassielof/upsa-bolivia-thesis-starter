@@ -221,8 +221,8 @@ En la @eq-promedio, las observaciones pueden representar tiempos de atención. P
   block: true,
   alt: "La varianza es el promedio de los cuadrados de las diferencias respecto de la media; también equivale al promedio de los cuadrados menos el cuadrado de la media.",
   $
-    sigma^2 &= 1/n sum_(i=1)^n (x_i - overline(x))^2 \
-            &= 1/n sum_(i=1)^n x_i^2 - overline(x)^2
+    sigma^2 & = 1/n sum_(i=1)^n (x_i - overline(x))^2 \
+            & = 1/n sum_(i=1)^n x_i^2 - overline(x)^2
   $,
 ) <eq-varianza>
 
@@ -324,7 +324,7 @@ Una cita con localizador puede escribirse como `#cite(<UMLDistilled3rd>, supplem
 
 Para demostrar una cita textual breve se reproduce una oración de la documentación oficial de Typst, en su idioma original:
 
-#quote(attribution: <TypstHeadings>)[With headings, you can structure your document into sections.]
+#quote(attribution: <knuth1984texbook>)[With headings, you can structure your document into sections.]
 
 El siguiente bloque contiene más de cuarenta palabras. Es un testimonio inventado para demostrar la composición de una cita extensa; no procede de una entrevista ni constituye evidencia del proyecto.
 
@@ -371,7 +371,7 @@ El contenido de `quote` conserva una atribución explícita. Para una cita real 
 #show: back-matter.with()
 
 #bibliography(
-  ("/data/bib.haya.yaml", "references-demo.yaml"),
+  ("/data/bib.haya.yaml", "/data/ref.bib"),
   style: "ieee",
   full: true,
 )

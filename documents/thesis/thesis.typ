@@ -1,4 +1,6 @@
-#import "/template/lib.typ": back-matter, front-matter, main-matter, settings
+#import "/template/lib.typ": back-matter, front-matter, main-matter, part, settings
+
+#let multi-part = true
 
 #show: settings.with(
   typeface: "Alegreya",
@@ -17,6 +19,7 @@
   keywords: ("UPSA", "tesis"),
   date: datetime.today().year(),
   paper-size: "a4",
+  multi-part: multi-part,
 )
 
 #front-matter(
@@ -27,8 +30,8 @@
 
 #show: main-matter.with()
 
-// Este ejemplo conserva la organización por partes de la plantilla actual.
-// Los capítulos y su profundidad deberán ajustarse al criterio de la carrera.
+#if multi-part { part[El comienzo] }
+
 = Introducción
 
 Este documento combina contenido de demostración en español con texto de relleno para mostrar la composición de un trabajo de grado. El caso ilustrativo es un sistema de seguimiento de solicitudes de préstamo de equipos de laboratorio. No describe una implementación real ni resultados obtenidos en la Universidad.
@@ -197,6 +200,9 @@ donde #math.equation(alt: "n subíndice a", $n_a$) es el número de casos aproba
   alt: "Ecuación de complejidad algorítmica y entropía",
 )
 
+#if multi-part {
+  part[El final]
+}
 
 = Conclusiones
 
@@ -236,9 +242,7 @@ donde #math.equation(alt: "n subíndice a", $n_a$) es el número de casos aproba
   full: true,
 )
 
-= Anexos
-
-== Curriculum Vitae
+= Curriculum Vitae
 
 #image(
   "/documents/cv/CV.svg",
@@ -246,14 +250,14 @@ donde #math.equation(alt: "n subíndice a", $n_a$) es el número de casos aproba
   height: 1fr,
 )
 
-== Carta de Aprobación
+= Carta de Aprobación
 
 #lorem(100)
 
-== Presupuesto
+= Presupuesto
 
 #lorem(100)
 
-=== Herramientas
+== Herramientas
 
 #lorem(50)

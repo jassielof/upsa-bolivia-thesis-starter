@@ -10,7 +10,7 @@
   author-university-id: 2021117600,
   work-title: [El título de esta tesis es «Esperanza»],
   author-email: "a2021117600@estudiantes.upsa.edu.bo",
-  supervisor: [Nombre/s Apellido/s],
+  supervisor: [Dr. Juan Pérez],
   degree-level: [Licenciatura],
   degree-program: [Ingeniería de Sistemas],
   faculty: [Facultad de Ingeniería],
@@ -30,7 +30,7 @@
   problem: lorem(20),
 )
 
-#show: main-matter.with()
+#show: main-matter
 
 #if multi-part { part[El comienzo] }
 

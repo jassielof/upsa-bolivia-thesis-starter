@@ -1,17 +1,22 @@
-#import "/template/lib.typ": all-outlines, back-matter, front-matter, main-matter, settings, title-page
+#import "/template/lib.typ": back-matter, front-matter, main-matter, settings
 
 #show: settings.with(
-  fonts: (
-    body: "Source Serif 4",
-    title: "Source Sans 3",
-  ),
-  paragraph: (
-    spacing: 1.5em,
-    leading: 1.25em,
-  ),
-  graduation-work-info: (
-    is-plan: true,
-  ),
+  typeface: "Alegreya",
+  author-name: "Jassiel Ovando Franco",
+  author-university-id: 2021117600,
+  work-title: [El título de esta tesis es «Esperanza»],
+  author-email: "a2021117600@estudiantes.upsa.edu.bo",
+  supervisor: [Nombre/s Apellido/s],
+  degree-level: [Licenciatura],
+  degree-program: [Ingeniería de Sistemas],
+  faculty: [Facultad de Ingeniería],
+  modality: [Proyecto de Grado],
+  modality-acronym: [PG],
+  faculty-acronym: [FAI],
+  abstract: lorem(200),
+  keywords: ("UPSA", "tesis"),
+  date: datetime.today().year(),
+  paper-size: "a4",
 )
 
 #front-matter(
@@ -23,16 +28,16 @@
     ),
     indent: 0em,
     title: [Contenido],
-  )
+  ),
 )
 
 // #title-page()
 
 // #all-outlines
 
-#show: main-matter.with()
+#show: main-matter
 
-#set heading(offset: 2)
+// #set heading(offset: 2)
 = Definición del problema
 = Objetivos
 = Metodología
@@ -41,6 +46,6 @@
 = Cronograma
 = Conclusiones
 
-#show: back-matter.with()
+#show: back-matter
 
 #bibliography("/data/bib.haya.yaml", title: [Fuentes de información], full: true)

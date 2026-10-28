@@ -20,4 +20,4 @@
 #document("spine-cover.pdf", book-spine-cover())
 
 #generate-biblatex()
-#generate-hayagriva()
+#generate-hayagriva(call-number: "Th005.3 Ov1; CD005.3 Ov1")
